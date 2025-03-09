@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IconScout Batch Downloader</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="w-80 bg-gray-50">
+    <div class="p-4">
+        <!-- Header -->
+        <div class="mb-4">
+            <h1 class="text-xl font-bold text-gray-800 flex items-center">
+                <i class="fas fa-download mr-2 text-blue-500"></i>
+                IconScout Downloader
+            </h1>
+            <p class="text-sm text-gray-600">Download multiple assets automatically</p>
+        </div>
+
+        <!-- Main Controls -->
+        <div class="space-y-3">
+            <button id="startDownload" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition duration-200 flex items-center justify-center">
+                <i class="fas fa-play mr-2"></i>
+                Start Download
+            </button>
+
+            <button id="stopDownload" class="w-full bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-lg transition duration-200 flex items-center justify-center hidden">
+                <i class="fas fa-stop mr-2"></i>
+                Stop Download
+            </button>
+        </div>
+
+        <!-- Settings -->
+        <div class="mt-4 p-3 bg-white rounded-lg shadow-sm">
+            <h2 class="text-sm font-semibold text-gray-700 mb-2">Settings</h2>
+            <div class="space-y-2">
+                <div class="flex items-center justify-between">
+                    <label class="text-sm text-gray-600">Download Delay (ms):</label>
+                    <input type="number" id="delayInput" value="1000" min="500" step="100"
+                        class="w-24 px-2 py-1 text-sm border rounded focus:outline-none focus:border-blue-500">
+                </div>
+            </div>
+        </div>
+
+        <!-- Status -->
+        <div class="mt-4 p-3 bg-white rounded-lg shadow-sm">
+            <h2 class="text-sm font-semibold text-gray-700 mb-2">Status</h2>
+            <div id="statusContainer" class="text-sm text-gray-600">
+                <div class="flex items-center justify-between mb-2">
+                    <span>Queue:</span>
+                    <span id="queueCount">0</span>
+                </div>
+                <div class="flex items-center justify-between">
+                    <span>Status:</span>
+                    <span id="downloadStatus">Idle</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="mt-4 hidden" id="progressContainer">
+            <div class="w-full bg-gray-200 rounded-full h-2">
+                <div id="progressBar" class="bg-blue-500 h-2 rounded-full transition-all duration-200" style="width: 0%"></div>
+            </div>
+            <div class="text-xs text-gray-600 mt-1 text-center">
+                <span id="progressText">0%</span>
+            </div>
+        </div>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>
